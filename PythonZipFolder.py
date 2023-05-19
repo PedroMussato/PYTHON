@@ -1,8 +1,8 @@
-# IMPORTANDO AS BIBLIOTECAS NECESSÁRIAS
+# IMPORTING THE REQUIRED LIBRARIES
 import zipfile
 import os
 
-# CRIANDO A FUNÇÃO QUE REALIZA O PROCEDIMENTO
+# CREATING THE FUNCTION THAT PERFORMS THE PROCEDURE
 def zip_folder(folder_path, output_path):
     with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
         for root, _, files in os.walk(folder_path):
@@ -10,9 +10,9 @@ def zip_folder(folder_path, output_path):
                 file_path = os.path.join(root, file)
                 zipf.write(file_path, arcname=os.path.relpath(file_path, folder_path))
 
-# DECLARANDO AS VARIÁVEIS
-folder_to_zip = 'caminho_da_pasta_a_zipar'
-output_zip_file = 'caminho_e_nome_do_arquivo_zipado.zip'
+# DECLARING THE VARIABLES
+folder_to_zip = 'folder_path_to_zip'
+output_zip_file = 'output_zip_file_path_and_name.zip'
 
-# INVOCANDO A FUNÇÃO
+# INVOKING THE FUNCTION
 zip_folder(folder_to_zip, output_zip_file)
